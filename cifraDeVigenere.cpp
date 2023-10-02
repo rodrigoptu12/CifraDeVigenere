@@ -32,7 +32,35 @@ map<char, double> frequenciaPortugues = {
     {'y', 0.01},
     {'z', 0.47}
 };
-
+// Frequência de letras em português
+    map<char, double> frequenciaIngles = {
+        {'a', 8.167},
+        {'b', 1.492},
+        {'c', 2.782},
+        {'d', 4.253},
+        {'e', 12.702},
+        {'f', 2.228},
+        {'g', 2.015},
+        {'h', 6.094},
+        {'i', 6.966},
+        {'j', 0.153},
+        {'k', 0.772},
+        {'l', 4.025},
+        {'m', 2.406},
+        {'n', 6.749},
+        {'o', 7.507},
+        {'p', 1.929},
+        {'q', 0.095},
+        {'r', 5.987},
+        {'s', 6.327},
+        {'t', 9.056},
+        {'u', 2.758},
+        {'v', 0.978},
+        {'w', 0.360},
+        {'x', 0.150},
+        {'y', 1.974},
+        {'z', 0.074}
+    };
 // Função para descriptografar um grupo de letras com base na tabela de frequência
 string descriptografarGrupo(const string& grupo) {
     string resultado;
@@ -141,15 +169,33 @@ string decifraVigenere(string textoCifrado, string chave) {
 
     return textoDecifrado;
 }
+std::string retiraEspacosPontuacao(const std::string &texto)
+{
+    std::string textoSemEspacosPontuacao;
+    for (char letra : texto)
+    {
+        if (std::isalpha(letra))
+        {
+            textoSemEspacosPontuacao += letra;
+        }
+    }
 
+    return textoSemEspacosPontuacao;
+}
 int main() {
-    string textoOriginal = "I had a great weekend. My wife and I got married 30 years ago. My wife and I were really surprised when our son came to our house on Thursday evening. He then took us to the airport and gave us two tickets to go to Rome! He paid for everything: the flight, the hotel, everything. We had a lovely weekend. We remembered the night we got married. It was wonderful.I had a really terrible weekend. My boyfriend took me out to this really expensive restaurant. In the middle of our dinner, he gave me a very beautiful ring and he asked me to marry him. I was really surprised. I said no. I like him, but I knew I didn’t want to marry him. He was quite angry and sad. It was awful.";
+    string textoOriginal = "Quem se interessa por aprender a falar Português já pode contar com um ensino eficiente. Com os nossos métodos conseguimos ensinar, sobretudo alunos iniciantes, por meio de textos práticos, que favorecem a boa leitura e consequente compreensão do que é ensinado.Todo o aprendizado foi concebido com o objetivo de proporcionar uma forma inovadora e agradável de ensino, algo que foi estabelecido ao se empregar artigos de interesse geral que são voltados à construção de vocabulário e compreensão dos elementos gramaticais.";
     string chave = "principeencantadoo";
+
+    string textoOriginalSemEspacosPontuacao = retiraEspacosPontuacao(textoOriginal);
+    // to lower
+    for (char &c : textoOriginalSemEspacosPontuacao) {
+        c = tolower(c);
+    }
 
 
 
     cout << "Texto original: " << endl << textoOriginal << endl;
-    string textoCifrado = cifraVigenere(textoOriginal, chave);
+    string textoCifrado = cifraVigenere(textoOriginalSemEspacosPontuacao, chave);
     cout << "Texto cifrado: " << endl << textoCifrado << endl;
 
     // string textoQuebrado = quebrarCifra(textoCifrado);
