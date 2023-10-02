@@ -1,3 +1,5 @@
+# Rodrigo Pereira Couto 190116510 
+# CIC0201 - SEGURANÇA COMPUTACIONAL - T02 (2023.2 - 24N12)
 # Trabalho de Cifra de Vigenère
 
 Este é um trabalho que envolve a cifra de Vigenère e um ataque para quebrar a cifra. Aqui estão as instruções para executar os dois aspectos do trabalho: cifragem e ataque.
