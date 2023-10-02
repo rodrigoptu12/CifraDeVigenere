@@ -100,8 +100,6 @@ string descriptografarGrupo(const string& grupo) {
 
     return resultado;
 }
-
-
 string cifraVigenere(string texto, string chave) {
     string textoCifrado = "";
     int tamanhoChave = chave.length();
